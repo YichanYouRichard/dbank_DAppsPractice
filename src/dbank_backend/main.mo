@@ -18,9 +18,12 @@ actor DBank {
       currentValue -= amount;
       Debug.print(debug_show (currentValue));
     } else {
-      Debug.print("the withdrawl amount exceeds the current value.")
-    }
+      Debug.print("the withdrawl amount exceeds the current value.");
+    };
+  };
 
+  public query func checkBalance() : async Nat {
+    return currentValue;
   };
 
   // topUp();
