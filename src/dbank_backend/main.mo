@@ -6,7 +6,7 @@ actor DBank {
   stable var currentValue : Float = 300;
   currentValue := 100;
 
-  let startTime = Time.now();
+  stable var startTime = Time.now();
   Debug.print(debug_show (startTime));
 
   let id = 123523789123234;
@@ -35,6 +35,8 @@ actor DBank {
     let timeElapsedNS = currentTime - startTime;
     let timeElapsedS = timeElapsedNS / 1000000000;
     currentValue := currentValue * (1.01 ** Float.fromInt(timeElapsedS));
+    startTime := currentTime;
+
   };
 
 };
