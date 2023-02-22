@@ -23,8 +23,14 @@ document
 
     button.setAttribute("disabled", true);
 
-    await dbank_backend.topUp(inputAmount);
-    // await dbank_backend.withdrawal(outputAmount);
+    if (document.getElementById('input-amount').value.length != 0) {
+        await dbank_backend.topUp(inputAmount);
+    }
+    if (document.getElementById('withdrawal-amount').value.length != 0) {
+        await dbank_backend.withdrawl(outputAmount);
+    }
+
+    await dbank_backend.compound();
 
     const currentAmount = await dbank_backend.checkBalance();
     document.getElementById("value").innerText =
