@@ -1,11 +1,14 @@
 import Debug "mo:base/Debug";
+import Time "mo:base/Time"
 
 actor DBank {
-  var currentValue : Nat = 300;
+  stable var currentValue : Nat = 300;
   currentValue := 100;
 
+  let startTime = Time.now();
+  Debug.print(debug_show (startTime));
+
   let id = 123523789123234;
-  // Debug.print(debug_show (id));
 
   public func topUp(amount : Nat) {
     currentValue += amount;
@@ -26,5 +29,8 @@ actor DBank {
     return currentValue;
   };
 
-  // topUp();
+  public func compound() {
+    let currentTime = Time.now();
+  };
+
 };
